@@ -39,12 +39,11 @@ private val service: MainNetwork by lazy {
 
 fun getNetworkService() = service
 
-/**
- * Main network interface which will fetch a new welcome title for us
- */
+// add suspend modifier to the existing fetchNextTitle
+// change return type from Call<String> to String
 interface MainNetwork {
     @GET("next_title.json")
-    fun fetchNextTitle(): Call<String>
+    suspend fun fetchNextTitle(): String
 }
 
 
